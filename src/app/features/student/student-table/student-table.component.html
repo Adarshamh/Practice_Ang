@@ -1,0 +1,38 @@
+<div class="table-container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Phone</th>
+        <th>Semester</th>
+        <th>Status</th>
+        <th>Remaining</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let student of paginatedStudents">
+        <td>{{ student.name }}</td>
+        <td>{{ student.age }}</td>
+        <td>{{ student.phone }}</td>
+        <td>{{ student.semester }}</td>
+        <td>
+          <button class="btn btn-sm" [ngClass]="{
+              'btn-success': student.feesStatus === 'Paid',
+              'btn-danger': student.feesStatus === 'Unpaid'
+            }">
+            {{ student.feesStatus }}
+          </button>
+        </td>
+        <td>{{ student.feesRemaining }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination-container">
+    <button class="btn btn-primary" (click)="previousPage()">Previous</button>
+    <button class="btn btn-primary" (click)="nextPage()">Next</button>
+  </div>
+
+</div>

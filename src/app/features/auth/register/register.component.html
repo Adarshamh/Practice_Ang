@@ -1,0 +1,35 @@
+<div class="register-container">
+
+  <div class="register-card">
+    <h2 class="title">Create Account</h2>
+    <form [formGroup]="registerForm">
+
+      <div class="mb-3">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-control" placeholder="Enter Full Name" formControlName="name">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" placeholder="Enter Email" formControlName="email">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" placeholder="Enter Password" formControlName="password">
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" placeholder="Confirm Password" formControlName="confirmPassword">
+      </div>
+
+      <button type="button" class="btn btn-primary w-100" [disabled]="isLoading" (click)="onRegister()">
+        {{ isLoading ? 'Creating Account...' : 'Sign Up' }}
+      </button>
+
+      <div class="login-link">Already have an account?<a routerLink="/login">Login</a></div>
+    </form>
+  </div>
+  
+</div>

@@ -1,0 +1,22 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <h2 class="mb-4 text-center">Login</h2>
+    
+    <form [formGroup]="loginForm">
+      <div class="mb-3">
+        <input type="email" class="form-control" placeholder="Enter Email" formControlName="email">
+      </div>
+      
+      <div class="mb-3">
+        <input type="password" class="form-control" placeholder="Enter Password" formControlName="password">
+      </div>
+      
+      <button class="btn btn-primary w-100" (click)="onLogin()">
+        Login
+      </button>
+      
+      <div class="text-center mt-3">Don't have an account?<a routerLink="/register">Sign Up</a></div>
+
+    </form>
+  </div>
+</div>

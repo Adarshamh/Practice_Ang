@@ -1,0 +1,73 @@
+<div class="card-container">
+  <h3>Student Registration</h3>
+  <form [formGroup]="studentForm">
+    <div class="row">
+      
+      <div class="col-md-6 mb-3">
+        <label for="name">Student Name</label>
+        <input type="text" class="form-control" placeholder="Student Name" formControlName="name">
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="dob">Date of Birth</label>
+        <input type="date" class="form-control" formControlName="dob" (change)="calculateAge()">
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="age">Age</label>
+        <input type="number" class="form-control" formControlName="age" readonly>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="gender">Gender</label>
+        <select class="form-select" formControlName="gender">
+          <option value="">Select Gender</option>
+          <option *ngFor="let gender of genders" [value]="gender">
+            {{ gender }}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="phone">Phone</label>
+        <input type="text" class="form-control" placeholder="Phone" formControlName="phone">
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="semester">Semester</label>
+        <select class="form-select" formControlName="semester">
+          <option value="">Select Semester</option>
+          <option *ngFor="let semester of semesters" [value]="semester">
+            {{ semester }}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label for="totalFees">Total Fees</label>
+        <input type="number" class="form-control" placeholder="Total Fees" formControlName="totalFees"
+          (keyup)="calculateRemainingFees()">
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label for="feesPaid">Fees Paid</label>
+        <input type="number" class="form-control" placeholder="Fees Paid" formControlName="feesPaid"
+          (keyup)="calculateRemainingFees()">
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label for="feesRemaining">Remaining Fees</label>
+        <input type="number" class="form-control" formControlName="feesRemaining" readonly>
+      </div>
+    </div>
+    <div class="button-group">
+      <button type="button" class="btn btn-success" (click)="onSave()">
+        Save
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="clearForm()">
+        Clear
+      </button>
+    </div>
+  </form>
+
+</div>

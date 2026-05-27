@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+
+  margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  background: #f5f7fa;
+}
+
+.form-control,
+.form-select {
+
+  border-radius: 12px;
+}
+
+.btn {
+
+  border-radius: 25px;
+}

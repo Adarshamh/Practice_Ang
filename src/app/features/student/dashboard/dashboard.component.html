@@ -1,0 +1,15 @@
+<div class="dashboard-container">
+
+  <h2 class="mb-4">
+    Student Management Dashboard
+  </h2>
+
+  <app-student-form
+    (saveStudentEvent)="onSaveStudent($event)">
+  </app-student-form>
+
+  <app-student-table
+    [students]="students">
+  </app-student-table>
+
+</div>
