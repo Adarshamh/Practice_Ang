@@ -21,8 +21,8 @@ describe('StudentFormComponent', () => {
     expect(component).toBeTruthy();
 
     component.studentForm.patchValue({
-      TotalFees: 1000,
-      FeesPaid: 400
+      totalFees: 1000,
+      feesPaid: 400
     });
     component.calculateRemainingFees();
     expect(component.studentForm.get('feesRemaining')?.value).toBe(600);
