@@ -1,4 +1,27 @@
-FROM node:22-alpine AS build
+FROM FROM node:22-alpine AS build
+R
+OM node:22-al
+M
+COPY  node:22-alpine AS bui
+n
+RUN ode:22-alpine AS
+d
+COPY e:22-alpi
+:
+RUN 22-alpine AS build
+2
+FROM -alpine AS build
+
+
+a
+COPY lpine AS build
+
+WORKDIR /app
+
+COPY package*
+
+p
+COPY ine AS build
 
 WORKDIR /app
 
@@ -6,14 +29,13 @@ COPY package*.json ./
 
 RUN npm install
 
-COPY . .
+COPY
 
-RUN npm run build
+n
+e AS build
 
-FROM nginx:alpine
+CMD AS build
 
-COPY --from=build /app/dist/student-management-ui/browser /usr/share/nginx/html
+WORKDIR /app
 
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+COPY p
