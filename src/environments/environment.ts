@@ -4,5 +4,8 @@ export const environment = {
   //apiUrl: 'https://localhost:44371/api'
 
   // docker
-  apiUrl: 'http://localhost:8080/api'
+  //apiUrl: 'http://localhost:8080/api'
+
+  // Google Cloud VM Run
+  apiUrl: 'http://34.14.181.243:8080/api'
 };
