@@ -1,13 +1,19 @@
-<div class="about-container" style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;">
-	<a href="/assets/Mine.png" target="_blank" rel="noopener noreferrer" style="display:inline-block;">
- 		<img src="/assets/Mine.png" alt="Profile image" style="width:150px;height:150px;border-radius:50%;object-fit:cover;border:2px solid #e6e6e6;" />
- 	</a>
+<div class="about-container">
+	<div class="about-card">
+		<div class="avatar">
+			<a href="assets/Mine.png" target="_blank" rel="noopener noreferrer">
+				<img [src]="imageSrc" alt="Adarsh Hadli" />
+			</a>
+		</div>
 
-	<div class="about-content" style="flex:1;min-width:220px;max-width:900px;">
-		<h2>Adarsh Hadli</h2>
-		<h3><a href="mailto:adarshhadli96@gmail.com">adarshhadli96&#64;gmail.com</a></h3>
-        <h3>+91 9591774109</h3>
-        <h3>.NET + Angular Developer</h3>
+		<div class="about-content">
+			<h1 class="name">Adarsh Hadli</h1>
+			<p class="role">.NET + Angular Developer</p>
+			<p class="contact">
+				<a class="email" href="mailto:adarshhadli96@gmail.com">adarshhadli96&#64;gmail.com</a>
+				<span class="sep">·</span>
+				<a class="phone" href="tel:+919591774109">+91 9591774109</a>
+			</p>
 		<p>
 			Passionate full‑stack developer specializing in building robust, maintainable web applications using
 			<strong>.NET (C# / ASP.NET Core)</strong> on the backend and <strong>Angular</strong> with TypeScript on the frontend.
@@ -21,7 +27,8 @@
 			(OAuth2 / JWT), state management (NgRx / RxJS), and modern UI patterns.
 		</p>
 
-		<h3>Core Skills</h3>
+
+		<h3 class="section-title">Core Skills</h3>
 		<ul>
 			<li>Backend: C#, ASP.NET Core, Entity Framework Core, Web API, Unit & Integration Testing</li>
 			<li>Frontend: Angular, TypeScript, RxJS, NgRx, Angular Material / responsive design</li>
@@ -29,7 +36,8 @@
 			<li>Practices: TDD, SOLID, Clean Architecture, RESTful design</li>
 		</ul>
 
-		<h3>Experience Snapshot</h3>
+
+		<h3 class="section-title">Experience Snapshot</h3>
 		<p>
 			I have delivered enterprise features including role-based access, multi-page dashboards, complex forms with
 			validation, server-side pagination and filtering, and integrations with third-party services. I prefer simple,
@@ -41,9 +49,10 @@
 			user experiences. If you'd like to connect, open the profile image link or reach out via email or GitHub.
 		</p>
 
-		<p style="margin-top:12px;">
-			<strong>Profile image (click to open):</strong>
-			<a href="/assets/Mine.png" target="_blank" rel="noopener noreferrer">/assets/Mine.png</a>
-		</p>
+		<div class="footer-links">
+			<a class="btn primary" routerLink="/contact">Contact</a>
+			<a class="link" href="assets/Mine.png" target="_blank" rel="noopener noreferrer">Open profile image</a>
+		</div>
 	</div>
+  </div>
 </div>

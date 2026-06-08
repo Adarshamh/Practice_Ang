@@ -8,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AboutComponent {
 
+  // Use a component property for the image path so Angular resolves the asset reliably
+  imageSrc = 'assets/Mine.png';
+
 }
