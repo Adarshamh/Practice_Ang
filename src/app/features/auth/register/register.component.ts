@@ -37,6 +37,15 @@ export class RegisterComponent {
   }
 
   onRegister(): void {
+
+    console.log('Button Clicked');
+
+    console.log('Form Valid:', this.registerForm.valid);
+    console.log('Form Errors:', this.registerForm.errors);
+    console.log('Name:', this.registerForm.get('name')?.errors);
+    console.log('Email:', this.registerForm.get('email')?.errors);
+    console.log('Password:', this.registerForm.get('password')?.errors);
+    console.log('ConfirmPassword:', this.registerForm.get('confirmPassword')?.errors);
     if (this.registerForm.invalid) {
       return;
     }
