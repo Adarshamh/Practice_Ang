@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-about',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent {
-
-  // Use a component property for the image path so Angular resolves the asset reliably
   imageSrc = 'assets/Mine.png';
-
 }

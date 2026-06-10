@@ -1,20 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
-body {
+/* src/styles.css — Global styles */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+html, body {
   margin: 0;
-
-  font-family: Arial, Helvetica, sans-serif;
-
-  background: #f5f7fa;
+  padding: 0;
+  min-height: 100%;
+  background: #06090f;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-.form-control,
-.form-select {
-
-  border-radius: 12px;
+/* Portfolio design tokens — defined globally so Angular's
+   scoped component CSS can still read them */
+:root {
+  --bg:            #06090f;
+  --surface:       #0d1220;
+  --surface-2:     #121929;
+  --border:        rgba(255,255,255,0.07);
+  --border-strong: rgba(255,255,255,0.13);
+  --text:          #e8edf5;
+  --text-muted:    #7a8599;
+  --text-faint:    #3d4859;
+  --accent:        #6366f1;
+  --accent-glow:   rgba(99,102,241,0.18);
+  --accent-light:  #a5b4fc;
+  --amber:         #f59e0b;
+  --amber-dim:     rgba(245,158,11,0.12);
+  --green:         #10b981;
+  --green-dim:     rgba(16,185,129,0.12);
+  --pink:          #f472b6;
+  --pink-dim:      rgba(244,114,182,0.12);
+  --r-sm:          6px;
+  --r-md:          10px;
+  --r-lg:          16px;
+  --max-w:         1100px;
 }
 
-.btn {
-
-  border-radius: 25px;
-}
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
