@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
@@ -18,6 +18,7 @@ import { AuthService } from '../../../core/services/auth.service';
 export class RegisterComponent {
   registerForm!: FormGroup;
   isLoading = false;
+  formSubmitted = false;
 
   constructor(
     private fb: FormBuilder,
@@ -33,7 +34,13 @@ export class RegisterComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', Validators.required]
-    });
+    }, { validators: this.passwordsMatchValidator });
+  }
+
+  private passwordsMatchValidator: ValidatorFn = (group: AbstractControl): ValidationErrors | null => {
+    const password = group.get('password')?.value;
+    const confirm = group.get('confirmPassword')?.value;
+    return password && confirm && password !== confirm ? { passwordMismatch: true } : null;
   }
 
   onRegister(): void {
@@ -46,14 +53,10 @@ export class RegisterComponent {
     console.log('Email:', this.registerForm.get('email')?.errors);
     console.log('Password:', this.registerForm.get('password')?.errors);
     console.log('ConfirmPassword:', this.registerForm.get('confirmPassword')?.errors);
-    if (this.registerForm.invalid) {
-      return;
-    }
-    const password = this.registerForm.value.password;
-    const confirmPassword = this.registerForm.value.confirmPassword;
+    this.formSubmitted = true;
+    this.registerForm.markAllAsTouched();
 
-    if (password !== confirmPassword) {
-      alert('Passwords do not match');
+    if (this.registerForm.invalid) {
       return;
     }
     const request = {
