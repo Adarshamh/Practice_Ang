@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../core/services/auth.service';
 import { StudentFormComponent } from '../student-form/student-form.component';
 import { StudentTableComponent } from '../student-table/student-table.component';
 import { Student } from '../../../core/models/student';
@@ -14,13 +16,15 @@ import { StudentService } from '../../../core/services/student.service';
     StudentTableComponent
   ],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
   students: Student[] = [];
 
   constructor(
-    private studentService: StudentService
+    private studentService: StudentService,
+    private auth: AuthService,
+    private router: Router
   ) {
     this.loadStudents();
   }
@@ -49,5 +53,10 @@ export class DashboardComponent {
           console.log(error);
         }
       });
+  }
+
+  logout(): void {
+    this.auth.logout();
+    this.router.navigate(['/login']);
   }
 }
