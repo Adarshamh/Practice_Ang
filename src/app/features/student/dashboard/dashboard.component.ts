@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
-import { AuthService } from '../../../core/services/auth.service';
+
+// Note: logout is provided by the global navbar; no Router/AuthService needed here.
 import { StudentFormComponent } from '../student-form/student-form.component';
 import { StudentTableComponent } from '../student-table/student-table.component';
 import { Student } from '../../../core/models/student';
@@ -22,9 +22,7 @@ export class DashboardComponent {
   students: Student[] = [];
 
   constructor(
-    private studentService: StudentService,
-    private auth: AuthService,
-    private router: Router
+    private studentService: StudentService
   ) {
     this.loadStudents();
   }
@@ -53,10 +51,5 @@ export class DashboardComponent {
           console.log(error);
         }
       });
-  }
-
-  logout(): void {
-    this.auth.logout();
-    this.router.navigate(['/login']);
   }
 }
