@@ -29,3 +29,33 @@ button {
   margin-bottom: 4px;
   color: #374151;
 }
+
+/* 5-column compact grid */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  align-items: start;
+}
+
+.form-item {
+  min-width: 0;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+/* responsive fallbacks */
+@media (max-width: 1400px) {
+  .form-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 992px) {
+  .form-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 576px) {
+  .form-grid { grid-template-columns: repeat(1, 1fr); }
+  .button-group { justify-content: stretch; }
+}
