@@ -1,0 +1,5 @@
+
+/* small spacing for action buttons */
+.table-container td .me-2 {
+	margin-right: 0.5rem;
+}

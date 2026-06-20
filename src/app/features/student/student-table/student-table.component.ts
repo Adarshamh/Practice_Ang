@@ -1,20 +1,19 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Student } from '../../../core/models/student';
 
 @Component({
   selector: 'app-student-table',
   standalone: true,
-  imports: [
-    CommonModule
-  ],
-
+  imports: [CommonModule],
   templateUrl: './student-table.component.html',
-  styleUrl: './student-table.component.css'
+  styleUrls: ['./student-table.component.css']
 })
 export class StudentTableComponent {
   @Input()
   students: Student[] = [];
+  @Output() editStudent = new EventEmitter<Student>();
+  @Output() deleteStudent = new EventEmitter<Student>();
   currentPage = 1;
   pageSize = 5;
   get paginatedStudents(): Student[] {
@@ -39,5 +38,13 @@ export class StudentTableComponent {
     if (this.currentPage > 1) {
       this.currentPage--;
     }
+  }
+
+  onEdit(student: Student): void {
+    this.editStudent.emit(student);
+  }
+
+  onDelete(student: Student): void {
+    this.deleteStudent.emit(student);
   }
 }
