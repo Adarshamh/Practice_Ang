@@ -1,1 +1,8 @@
-<p>navbar works!</p>
+<nav class="navbar navbar-light bg-light p-2">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="#">Student Management</a>
+		<div *ngIf="isLoggedIn()">
+			<button class="btn btn-outline-danger" (click)="logout()">Logout</button>
+		</div>
+	</div>
+</nav>
