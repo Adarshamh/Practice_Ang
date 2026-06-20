@@ -1,72 +1,64 @@
 <div class="card-container">
-  <h3>Student Registration</h3>
   <form [formGroup]="studentForm">
-    <div class="row">
-      
-      <div class="col-md-6 mb-3">
-        <label for="name">Student Name</label>
-        <input type="text" class="form-control" placeholder="Student Name" formControlName="name">
+    <div class="row g-2">
+
+      <div class="col-sm-6 col-md-4 mb-2">
+        <label class="form-label small">Student Name</label>
+        <input type="text" class="form-control form-control-sm" placeholder="Student Name" formControlName="name">
       </div>
 
-      <div class="col-md-6 mb-3">
-        <label for="dob">Date of Birth</label>
-        <input type="date" class="form-control" formControlName="dob" (change)="calculateAge()">
+      <div class="col-sm-6 col-md-4 mb-2">
+        <label class="form-label small">Date of Birth</label>
+        <input type="date" class="form-control form-control-sm" formControlName="dob" (change)="calculateAge()">
       </div>
 
-      <div class="col-md-6 mb-3">
-        <label for="age">Age</label>
-        <input type="number" class="form-control" formControlName="age" readonly>
+      <div class="col-sm-6 col-md-4 mb-2">
+        <label class="form-label small">Age</label>
+        <input type="number" class="form-control form-control-sm" formControlName="age" readonly>
       </div>
 
-      <div class="col-md-6 mb-3">
-        <label for="gender">Gender</label>
-        <select class="form-select" formControlName="gender">
+      <div class="col-sm-6 col-md-4 mb-2">
+        <label class="form-label small">Gender</label>
+        <select class="form-select form-select-sm" formControlName="gender">
           <option value="">Select Gender</option>
-          <option *ngFor="let gender of genders" [value]="gender">
-            {{ gender }}
-          </option>
+          <option *ngFor="let gender of genders" [value]="gender">{{ gender }}</option>
         </select>
       </div>
 
-      <div class="col-md-6 mb-3">
-        <label for="phone">Phone</label>
-        <input type="text" class="form-control" placeholder="Phone" formControlName="phone">
+      <div class="col-sm-6 col-md-4 mb-2">
+        <label class="form-label small">Phone</label>
+        <input type="text" class="form-control form-control-sm" placeholder="Phone" formControlName="phone">
       </div>
 
-      <div class="col-md-6 mb-3">
-        <label for="semester">Semester</label>
-        <select class="form-select" formControlName="semester">
+      <div class="col-sm-6 col-md-4 mb-2">
+        <label class="form-label small">Semester</label>
+        <select class="form-select form-select-sm" formControlName="semester">
           <option value="">Select Semester</option>
-          <option *ngFor="let semester of semesters" [value]="semester">
-            {{ semester }}
-          </option>
+          <option *ngFor="let semester of semesters" [value]="semester">{{ semester }}</option>
         </select>
       </div>
 
-      <div class="col-md-4 mb-3">
-        <label for="totalFees">Total Fees</label>
-        <input type="number" class="form-control" placeholder="Total Fees" formControlName="totalFees"
+      <div class="col-sm-6 col-md-4 mb-2">
+        <label class="form-label small">Total Fees</label>
+        <input type="number" class="form-control form-control-sm" placeholder="Total Fees" formControlName="totalFees"
           (keyup)="calculateRemainingFees()">
       </div>
 
-      <div class="col-md-4 mb-3">
-        <label for="feesPaid">Fees Paid</label>
-        <input type="number" class="form-control" placeholder="Fees Paid" formControlName="feesPaid"
+      <div class="col-sm-6 col-md-4 mb-2">
+        <label class="form-label small">Fees Paid</label>
+        <input type="number" class="form-control form-control-sm" placeholder="Fees Paid" formControlName="feesPaid"
           (keyup)="calculateRemainingFees()">
       </div>
 
-      <div class="col-md-4 mb-3">
-        <label for="feesRemaining">Remaining Fees</label>
-        <input type="number" class="form-control" formControlName="feesRemaining" readonly>
+      <div class="col-sm-6 col-md-4 mb-2">
+        <label class="form-label small">Remaining Fees</label>
+        <input type="number" class="form-control form-control-sm" formControlName="feesRemaining" readonly>
       </div>
+
     </div>
-    <div class="button-group">
-      <button type="button" class="btn btn-success" (click)="onSave()">
-        Save
-      </button>
-      <button type="button" class="btn btn-secondary" (click)="clearForm()">
-        Clear
-      </button>
+    <div class="button-group mt-3">
+      <button type="button" class="btn btn-success btn-sm" (click)="onSave()">Save</button>
+      <button type="button" class="btn btn-outline-secondary btn-sm" (click)="clearForm()">Clear</button>
     </div>
   </form>
 
